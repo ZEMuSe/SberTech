@@ -16,4 +16,8 @@ public class CitiesHaveFoundation extends CitiesHaveNoFoundation {
         foundation = strings[5];
     }
 
+    @Override
+    public String toString() {
+       return super.toString() + "', foundation='" + foundation + "'};";
+    }
 }
