@@ -15,6 +15,7 @@ public class Main {
             CitiesHaveNoFoundation citiesHaveNoFoundation = CitiesFactory.getCityFromFactory(scanner);
             list.add(citiesHaveNoFoundation);
         }
+        CitiesHaveNoFoundation.printMaxPopulation(list.toArray(CitiesHaveNoFoundation[]::new));
         list
                 .stream()
                 .sorted()

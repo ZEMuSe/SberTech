@@ -1,11 +1,9 @@
-import java.util.Collection;
-
 public class CitiesHaveNoFoundation implements Comparable<CitiesHaveNoFoundation> {
     private long Id;
     private String name;
     private String region;
     private String district;
-    private int population;
+    private  int population;
 
     public long getId() {
         return Id;
@@ -67,7 +65,17 @@ public class CitiesHaveNoFoundation implements Comparable<CitiesHaveNoFoundation
         population = Integer.parseInt(string[4]);
     }
 
-
+    public static void printMaxPopulation(CitiesHaveNoFoundation[] citiesHaveNoFoundationsArr){
+        int maxPopulation = 0;
+        int maxIndex = 0;
+        for (int i = 0; i < citiesHaveNoFoundationsArr.length; i++){
+            if (citiesHaveNoFoundationsArr[i].getPopulation() > maxPopulation){
+                maxPopulation = citiesHaveNoFoundationsArr[i].getPopulation();
+                maxIndex = i+1;
+            }
+        }
+        System.out.println("[" +  maxIndex + "] = " + maxPopulation);
+    }
 
     @Override
     public String toString() {
