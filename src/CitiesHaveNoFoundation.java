@@ -1,4 +1,6 @@
-public class CitiesHaveNoFoundation {
+import java.util.Collection;
+
+public class CitiesHaveNoFoundation implements Comparable<CitiesHaveNoFoundation> {
     private long Id;
     private String name;
     private String region;
@@ -66,8 +68,20 @@ public class CitiesHaveNoFoundation {
     }
 
 
+
     @Override
     public String toString() {
        return "City" + "{name=" + "'" + getName() + "', region='"  + getRegion() + "', district='" + getDistrict() + "', population='" + getPopulation();
+    }
+
+
+    @Override
+    public int compareTo(CitiesHaveNoFoundation o) {
+        int regionCompare = district.compareTo(o.district);
+        if (regionCompare != 0){
+            return regionCompare;
+        } else {
+            return name.compareToIgnoreCase(o.name);
+        }
     }
 }

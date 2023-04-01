@@ -2,9 +2,7 @@ import Constants.FileNames;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) throws IOException{
@@ -18,6 +16,8 @@ public class Main {
             list.add(citiesHaveNoFoundation);
         }
         list
+                .stream()
+                .sorted()
                 .forEach(System.out::println);
     }
 }
