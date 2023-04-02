@@ -1,3 +1,6 @@
+import java.util.HashMap;
+import java.util.Map;
+
 public class CitiesHaveNoFoundation implements Comparable<CitiesHaveNoFoundation> {
     private long Id;
     private String name;
@@ -75,6 +78,26 @@ public class CitiesHaveNoFoundation implements Comparable<CitiesHaveNoFoundation
             }
         }
         System.out.println("[" +  maxIndex + "] = " + maxPopulation);
+    }
+
+    public static void printCitiesQuantity(CitiesHaveNoFoundation[] citiesHaveNoFoundations){
+        int n = citiesHaveNoFoundations.length;
+        HashMap<String, Integer> map = new HashMap<>();
+
+        for(int i = 0; i < n; i++){
+            if (map.containsKey(citiesHaveNoFoundations[i].getRegion())){
+                int c = map.get(citiesHaveNoFoundations[i].getRegion());
+                map.replace(citiesHaveNoFoundations[i].getRegion(), c + 1);
+            } else
+                map.put(citiesHaveNoFoundations[i].getRegion(), 1);
+        }
+        for (Map.Entry<String, Integer> entry: map.entrySet()){
+            if (entry.getValue() > 1){
+                System.out.println(entry.getKey() + " = " + entry.getValue());
+            } else
+                continue;
+        }
+
     }
 
     @Override
